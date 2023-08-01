@@ -1,0 +1,11 @@
+Flask
+scikit-learn
+xgboost
+statsmodels
+numpy
+pandas
+matplotlib
+seaborn
+scipy
+tensorflow
+jupyterlab

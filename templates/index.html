@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML MODEL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: #2266cc;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        h1 {
+            margin: 0;
+            padding: 10px;
+            font-size: 36px;
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 720px;
+            /* Decreased by 10% */
+            margin: 40px auto;
+            padding: 30px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            grid-column-gap: 80px;
+        }
+        
+        label {
+            font-weight: bold;
+            text-align: right;
+            margin-right: 10px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.2s;
+        }
+        
+        input[type="text"]:focus {
+            border-color: #2266cc;
+            outline: none;
+        }
+        
+        input[type="submit"] {
+            grid-column: span 2;
+            background-color: #2266cc;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #204080;
+        }
+        /* Optional: Center the prediction result text */
+        
+        h2 {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #2266cc;
+        }
+        
+        footer {
+            background-color: #2266cc;
+            color: #fff;
+            padding: 10px;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Machine Learning Model</h1>
+    </header>
+    <form action="/predict" method="post">
+        <div>
+            <label for="CI_cat">CI_cat:</label>
+            <input type="text" name="CI_cat" placeholder="Enter CI_cat">
+        </div>
+        <div>
+            <label for="CI_Subcat">CI_Subcat:</label>
+            <input type="text" name="CI_Subcat" placeholder="Enter CI_Subcat">
+        </div>
+        <div>
+            <label for="WBS">WBS:</label>
+            <input type="text" name="WBS" placeholder="Enter WBS">
+        </div>
+        <div>
+            <label for="Status">Status:</label>
+            <input type="text" name="Status" placeholder="Enter Status">
+        </div>
+        <div>
+            <label for="Impact">Impact:</label>
+            <input type="text" name="Impact" placeholder="Enter Impact">
+        </div>
+        <div>
+            <label for="number_cnt">number_cnt:</label>
+            <input type="text" name="number_cnt" placeholder="Enter number_cnt">
+        </div>
+        <div>
+            <label for="Category">Category:</label>
+            <input type="text" name="Category" placeholder="Enter Category">
+        </div>
+        <div>
+            <label for="KB_number">KB_number:</label>
+            <input type="text" name="KB_number" placeholder="Enter KB_number">
+        </div>
+        <div>
+            <label for="No_of_Reassignments">No_of_Reassignments:</label>
+            <input type="text" name="No_of_Reassignments" placeholder="Enter No_of_Reassignments">
+        </div>
+        <div>
+            <label for="No_of_Related_Interactions">No_of_Related_Interactions:</label>
+            <input type="text" name="No_of_Related_Interactions" placeholder="Enter No_of_Related_Interactions">
+        </div>
+        <div>
+            <label for="Handle_Time_hrs_conv">Handle_Time_hrs_conv:</label>
+            <input type="text" name="Handle_Time_hrs_conv" placeholder="Enter Handle_Time_hrs_conv">
+        </div>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <!-- Displaying the prediction result here -->
+    {% if prediction_result %}
+    <h2>Predicted ticket priority: {{ prediction_result }}</h2>
+    {% endif %}
+
+    <footer>
+        <p>&copy; 2023 YourCompany. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

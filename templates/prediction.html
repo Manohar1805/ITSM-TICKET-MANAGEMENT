@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Machine Learning Prediction</title>
+</head>
+<body>
+    <h1>Machine Learning Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="CI_Cat">CI_Cat:</label>
+        <input type="text" id="CI_Cat" name="CI_Cat" required><br>
+
+        <label for="CI_Subcat">CI_Subcat:</label>
+        <input type="text" id="CI_Subcat" name="CI_Subcat" required><br>
+
+        <label for="WBS">WBS:</label>
+        <input type="text" id="WBS" name="WBS" required><br>
+
+        <label for="Status">Status:</label>
+        <input type="text" id="Status" name="Status" required><br>
+
+        <label for="Impact">Impact:</label>
+        <input type="text" id="Impact" name="Impact" required><br>
+
+        <label for="number_cnt">number_cnt:</label>
+        <input type="text" id="number_cnt" name="number_cnt" required><br>
+
+        <label for="Category">Category:</label>
+        <input type="text" id="Category" name="Category" required><br>
+
+        <label for="KB_number">KB_number:</label>
+        <input type="text" id="KB_number" name="KB_number" required><br>
+
+        <label for="No_of_Reassignments">No_of_Reassignments:</label>
+        <input type="text" id="No_of_Reassignments" name="No_of_Reassignments" required><br>
+
+        <label for="No_of_Related_Interactions">No_of_Related_Interactions:</label>
+        <input type="text" id="No_of_Related_Interactions" name="No_of_Related_Interactions" required><br>
+
+        <label for="Handle_Time_hrs_conv">Handle_Time_hrs_conv:</label>
+        <input type="text" id="Handle_Time_hrs_conv" name="Handle_Time_hrs_conv" required><br>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
