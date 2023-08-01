@@ -6,7 +6,9 @@ with open('all_priority_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 def predict(input_data):
-    return model.predict([input_data])
+    # Convert the input_data dictionary to a 2D array-like format
+    input_array = np.array(list(input_data.values())).reshape(1, -1)
+    return model.predict(input_array)
 
 def main():
     st.title("TICKET PRIORITY PREDICTION")
