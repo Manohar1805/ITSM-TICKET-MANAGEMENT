@@ -21,12 +21,12 @@ def main():
         ci_subcat = st.number_input("CI Subcat", value=0, key="CI_Subcat", step=1)
         wbs = st.number_input("WBS", value=0, key="WBS", step=1)
         status = st.selectbox("Status", options=[0, 1], index=0, key="Status")
-        impact = st.selectbox("Impact", options=[0, 1, 2], index=0, key="Impact")
+        impact = st.selectbox("Impact", options=[1,2,3,4,5], index=0, key="Impact")
         number_cnt = st.number_input("number_cnt", value=0.0, key="number_cnt")
 
     # Second column (col2)
     with col2:
-        category = st.selectbox("Category", options=[0, 1, 2], index=0, key="Category")
+        category = st.selectbox("Category", options=[1,2,3,4,5], index=0, key="Category")
         kb_number = st.number_input("KB_number", value=0, key="KB_number", step=1)
         num_reassignments = st.number_input("No_of_Reassignments", value=0, key="No_of_Reassignments", step=1)
         num_related_interactions = st.number_input("No_of_Related_Interactions", value=0, key="No_of_Related_Interactions", step=1)
