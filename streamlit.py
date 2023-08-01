@@ -9,7 +9,7 @@ def predict(input_data):
     return model.predict([input_data])
 
 def main():
-    st.title("Your App Name")
+    st.title("TICKET PRIORITY PREDICTION")
 
     # Create a 6-row, 2-column layout
     col1, col2 = st.columns(2)
