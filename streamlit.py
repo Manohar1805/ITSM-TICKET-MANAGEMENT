@@ -16,34 +16,35 @@ def main():
 
     # First column (col1)
     with col1:
-        st.number_input("CI Subcat", value=0, key="CI_Subcat")
-        st.number_input("WBS", value=0, key="WBS")
-        st.number_input("Status", value=0, key="Status")
-        st.number_input("Impact", value=0, key="Impact")
-        st.number_input("number_cnt", value=0.0, key="number_cnt")
-        
+        ci_subcat = st.number_input("CI Subcat", value=0, key="CI_Subcat", step=1)
+        wbs = st.number_input("WBS", value=0, key="WBS", step=1)
+        status = st.selectbox("Status", options=[0, 1], index=0, key="Status")
+        impact = st.selectbox("Impact", options=[0, 1, 2], index=0, key="Impact")
+        number_cnt = st.number_input("number_cnt", value=0.0, key="number_cnt")
+
     # Second column (col2)
     with col2:
-        st.number_input("Category", value=0, key="Category")
-        st.number_input("KB_number", value=0, key="KB_number")
-        st.number_input("No_of_Reassignments", value=0, key="No_of_Reassignments")
-        st.number_input("No_of_Related_Interactions", value=0, key="No_of_Related_Interactions")
-        st.number_input("Handle_Time_hrs_conv", value=0, key="Handle_Time_hrs_conv")
+        category = st.selectbox("Category", options=[0, 1, 2], index=0, key="Category")
+        kb_number = st.number_input("KB_number", value=0, key="KB_number", step=1)
+        num_reassignments = st.number_input("No_of_Reassignments", value=0, key="No_of_Reassignments", step=1)
+        num_related_interactions = st.number_input("No_of_Related_Interactions", value=0, key="No_of_Related_Interactions", step=1)
+        handle_time_hrs_conv = st.number_input("Handle_Time_hrs_conv", value=0, key="Handle_Time_hrs_conv", step=1)
 
     if st.button("Predict"):
-        # Retrieve the input data from the form fields
+        # Convert form inputs to appropriate data types
         input_data = {
-            "CI_Subcat": st.session_state["CI_Subcat"],
-            "WBS": st.session_state["WBS"],
-            "Status": st.session_state["Status"],
-            "Impact": st.session_state["Impact"],
-            "number_cnt": st.session_state["number_cnt"],
-            "Category": st.session_state["Category"],
-            "KB_number": st.session_state["KB_number"],
-            "No_of_Reassignments": st.session_state["No_of_Reassignments"],
-            "No_of_Related_Interactions": st.session_state["No_of_Related_Interactions"],
-            "Handle_Time_hrs_conv": st.session_state["Handle_Time_hrs_conv"],
+            "CI_Subcat": int(ci_subcat),
+            "WBS": int(wbs),
+            "Status": int(status),
+            "Impact": int(impact),
+            "number_cnt": float(number_cnt),
+            "Category": int(category),
+            "KB_number": int(kb_number),
+            "No_of_Reassignments": int(num_reassignments),
+            "No_of_Related_Interactions": int(num_related_interactions),
+            "Handle_Time_hrs_conv": int(handle_time_hrs_conv),
         }
+
         prediction_result = predict(input_data)
         st.write("Prediction:", prediction_result)
 
